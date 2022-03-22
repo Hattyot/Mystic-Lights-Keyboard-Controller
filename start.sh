@@ -1,4 +1,4 @@
-#cd "$(dirname "$(realpath "$0")")"
-#export DISPLAY=:0
+#!/bin/bash
+cd "$(dirname "$(realpath "$0")")"
+export $(dbus-launch)
 python src/dbusiface.py
-echo "Started mystic lights controller with pid: "$!

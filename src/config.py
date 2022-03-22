@@ -9,7 +9,7 @@ class Config:
         self.next_stage_hotkey = None
         self.next_profile_hotkey = None
 
-        self.profiles = []
+        self.profiles: list[dict] = []
 
         self.load_config()
 
@@ -22,4 +22,4 @@ class Config:
         self.next_stage_hotkey = config['config'].get('next_stage_hotkey')
         self.next_profile_hotkey = config['config'].get('next_profile_hotkey')
 
-        self.profiles = [Profile(profile_data) for profile_data in config['profiles']]
+        self.profiles = config['profiles']

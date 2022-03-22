@@ -1,11 +1,10 @@
 [Unit]
 Description=Mystic Lights keyboard controller service
-After=multi-user.target
 
 [Service]
-Type=simple
-Restart=Always
-ExecStart=/usr/bin/python3
+Type=dbus
+BusName=org.hattyot.MysticLightRGB
+ExecStart=/usr/local/bin/mystic-lights-controller
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target

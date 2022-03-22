@@ -14,7 +14,7 @@ class DbusManager(dbus.service.Object):
         self.config = self.rgb_controller.config
         self.setup_keybinds()
 
-        self.bus = dbus.SessionBus()
+        self.bus = dbus.SystemBus()
         bus_name = dbus.service.BusName(DBUS_NAME, bus=self.bus)
         super(DbusManager, self).__init__(bus_name, DBUS_PATH)
 
