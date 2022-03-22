@@ -1,8 +1,8 @@
 config:
   vendor_id: 1462
   product_id: 1563
-  next_stage_hotkey: <super>F8  # remove if you don't want gdk keybinds
-  next_profile_hotkey: <super>F7  # remove if you don't want gdk keybinds
+  next_stage_hotkey: Super-F8  # remove if you don't want gdk keybinds
+  next_profile_hotkey: Super-F7  # remove if you don't want gdk keybinds
 
 profiles:
   - name: profile_1

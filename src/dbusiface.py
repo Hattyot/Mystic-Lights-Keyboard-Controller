@@ -1,7 +1,8 @@
 import rgb_controller
 import dbus
 import dbus.service
-from gi.repository import GLib, Keybinder
+from keybind import KeyBinder
+from gi.repository import GLib
 from dbus.mainloop.glib import DBusGMainLoop
 
 DBUS_PATH = "/org/hattyot/MysticLightRGB"
@@ -12,18 +13,18 @@ class DbusManager(dbus.service.Object):
     def __init__(self):
         self.rgb_controller = rgb_controller.Controller()
         self.config = self.rgb_controller.config
-        self.setup_keybinds()
 
         self.bus = dbus.SystemBus()
         bus_name = dbus.service.BusName(DBUS_NAME, bus=self.bus)
+
+        self.setup_keybinds()
         super(DbusManager, self).__init__(bus_name, DBUS_PATH)
 
     def setup_keybinds(self):
-        Keybinder.init()
-        if self.config.next_stage_hotkey:
-            Keybinder.bind(self.config.next_stage_hotkey, self.next_stage)
-        if self.config.next_profile_hotkey:
-            Keybinder.bind(self.config.next_profile_hotkey, self.next_profile)
+        KeyBinder.activate({
+            self.config.next_stage_hotkey: self.next_stage,
+            self.config.next_profile_hotkey: self.next_profile
+        })
 
     @dbus.service.method(DBUS_NAME)
     def next_stage(self, *_, **__):
