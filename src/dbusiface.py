@@ -21,10 +21,13 @@ class DbusManager(dbus.service.Object):
         super(DbusManager, self).__init__(bus_name, DBUS_PATH)
 
     def setup_keybinds(self):
-        KeyBinder.activate({
-            self.config.next_stage_hotkey: self.next_stage,
-            self.config.next_profile_hotkey: self.next_profile
-        })
+        keybinds = {}
+        if self.config.next_stage_hotkey:
+            keybinds.update({self.config.next_stage_hotkey: self.next_stage})
+        if self.config.next_profile_hotkey:
+            keybinds.update({self.config.next_profile_hotkey: self.next_profile})
+
+        KeyBinder.activate(keybinds)
 
     @dbus.service.method(DBUS_NAME)
     def next_stage(self, *_, **__):
