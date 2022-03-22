@@ -1,0 +1,11 @@
+[Unit]
+Description=Mystic Lights keyboard controller service
+After=multi-user.target
+
+[Service]
+Type=simple
+Restart=Always
+ExecStart=/usr/bin/python3
+
+[Install]
+WantedBy=multi-user.target
