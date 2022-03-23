@@ -10,6 +10,7 @@ Special thanks to u/VesperLlama for providing the original script for this and 6
 All configurable things can be configured in `config.yaml`
 * `vendor_id` - Should always be 1462
 * `product_id` - Varies on devices and can be found out with `lsusb` command
+* `dbus_enabled` - Whether to enable dbus
 * `hotkeys_enabled` - Whether to enable all hotkeys or not
 * `next_stage_hotkey` - if set, automatically creates a global hotkey for switching stages
 * `next_profile_hotkey` - if set, automatically creates a global hotkey for switching profiles
