@@ -1,6 +1,7 @@
 config:
   vendor_id: 1462
   product_id: 1563
+  dbus_enabled: yes
   hotkeys_enabled: yes
   next_stage_hotkey: Super-F8  # remove if you don't want global gdk keybind for next_stage
   next_profile_hotkey: Super-F7  # remove if you don't want global gdk keybind for next_profile

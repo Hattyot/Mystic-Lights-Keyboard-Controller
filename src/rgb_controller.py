@@ -15,12 +15,12 @@ class FailedToDetachKernelDriver(Exception):
 
 class Controller:
 
-    def __init__(self):
+    def __init__(self, config: Config):
         self.device = None
 
         self.current_profile = 0
 
-        self.config = Config()
+        self.config = config
         self.profiles: list[Profile] = []
 
         self.load_device()
