@@ -1,9 +1,12 @@
 [Unit]
 Description=Mystic Lights keyboard controller service
+After=multi-user.target
 
 [Service]
 Type=dbus
 BusName=org.hattyot.MysticLightRGB
+Restart=always
+RestartSec=5
 ExecStart=/usr/local/bin/mystic-lights-controller
 
 [Install]
