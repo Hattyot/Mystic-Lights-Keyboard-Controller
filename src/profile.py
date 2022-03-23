@@ -1,8 +1,21 @@
+import re
+import webcolors
+
+
 class Stage:
     def __init__(self, data: dict):
         self.state = data.get('state', True)
-        self.brightness = data.get('brightness', None)
-        self.colour = data.get('colour', None)
+        self.brightness = data.get('brightness')
+        self.colour = self.parse_colour(data.get('colour'))
+
+    @staticmethod
+    def parse_colour(colour_data):
+        if isinstance(colour_data, list) and len(colour_data) == 3:
+            return colour_data
+        elif isinstance(colour_data, str) and re.match('^#(?:[0-9a-fA-F]{3}){1,2}$', colour_data):
+            return [int(x, 16) for x in re.findall('..', re.findall('^(?:#)?((?:[0-9a-fA-F]{3}){1,2})$', '#ffffff')[0])]
+        elif isinstance(colour_data, str):
+            return list(webcolors.name_to_rgb(colour_data))
 
     def __repr__(self):
         return self.__str__()

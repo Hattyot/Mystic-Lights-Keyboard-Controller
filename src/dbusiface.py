@@ -21,6 +21,9 @@ class DbusManager(dbus.service.Object):
         super(DbusManager, self).__init__(bus_name, DBUS_PATH)
 
     def setup_keybinds(self):
+        if not self.config.hotkeys_enabled:
+            return
+
         keybinds = {}
         if self.config.next_stage_hotkey:
             keybinds.update({self.config.next_stage_hotkey: self.next_stage})

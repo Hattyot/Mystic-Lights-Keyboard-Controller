@@ -1,8 +1,9 @@
 config:
   vendor_id: 1462
   product_id: 1563
-  next_stage_hotkey: Super-F8  # remove if you don't want gdk keybinds
-  next_profile_hotkey: Super-F7  # remove if you don't want gdk keybinds
+  hotkeys_enabled: yes
+  next_stage_hotkey: Super-F8  # remove if you don't want global gdk keybind for next_stage
+  next_profile_hotkey: Super-F7  # remove if you don't want global gdk keybind for next_profile
 
 profiles:
   - name: profile_1
@@ -10,15 +11,15 @@ profiles:
     stages:
       - state: on
         brightness: 1
-        colour: [255, 255, 255]
+        colour: white
 
       - state: on
         brightness: 3
-        colour: [255, 255, 255]
+        colour: white
 
       - state: on
         brightness: 5
-        colour: [255, 255, 255]
+        colour: white
 
       - state: off
 
@@ -26,14 +27,14 @@ profiles:
     stages:
       - state: on
         brightness: 1
-        colour: [255, 255, 0]
+        colour: red
 
       - state: on
         brightness: 3
-        colour: [255, 255, 0]
+        colour: red
 
       - state: on
         brightness: 5
-        colour: [255, 255, 0]
+        colour: red
 
       - state: off
